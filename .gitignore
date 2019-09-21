@@ -1,0 +1,11 @@
+*.suo
+*.user
+*.opensdf
+*.sdf
+
+CopyShell_i.c
+CopyShell_i.h
+CopyShell_p.c
+dlldata.c
+
+ReadMe.txt

@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CopyShell", "CopyShell.vcxproj", "{774BF23F-F982-4E16-BB25-A30389236EC4}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CopyShellPS", "CopyShellPS.vcxproj", "{20C29CB8-D045-4C2B-8D28-26455F1A491D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{774BF23F-F982-4E16-BB25-A30389236EC4} = {774BF23F-F982-4E16-BB25-A30389236EC4}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{774BF23F-F982-4E16-BB25-A30389236EC4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{774BF23F-F982-4E16-BB25-A30389236EC4}.Debug|Win32.Build.0 = Debug|Win32
+		{774BF23F-F982-4E16-BB25-A30389236EC4}.Release|Win32.ActiveCfg = Release|Win32
+		{774BF23F-F982-4E16-BB25-A30389236EC4}.Release|Win32.Build.0 = Release|Win32
+		{20C29CB8-D045-4C2B-8D28-26455F1A491D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{20C29CB8-D045-4C2B-8D28-26455F1A491D}.Release|Win32.ActiveCfg = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
