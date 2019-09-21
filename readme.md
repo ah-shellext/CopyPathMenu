@@ -19,8 +19,8 @@ regsvr32 CopyShell.dll
 + Tutorial see [tutorial.md](https://github.com/Aoi-hosizora/CopyShell/blob/master/tutorial.md)
 + Main code see [CopyMenu.h](https://github.com/Aoi-hosizora/CopyShell/blob/master/CopyMenu.h) and [CopyMenu.cpp](https://github.com/Aoi-hosizora/CopyShell/blob/master/CopyMenu.cpp)
 + CLSID setting see [CopyShell.idl](https://github.com/Aoi-hosizora/CopyShell/blob/master/CopyShell.idl) and [CopyMenu.rgs](https://github.com/Aoi-hosizora/CopyShell/blob/master/CopyMenu.rgs)
-+ `lnk` file `Initialize` should register twice (`*` and `.lnk`) to filter the exact paths, see [RegMenu.reg](https://github.com/Aoi-hosizora/CopyShell/blob/master/RegMenu.reg)
 + Use `wstring` and `LPWSTR` rather than `string` and `LPSTR` to support other code page
++ ~~`lnk` file `Initialize` should register twice (`*` and `.lnk`) to filter the exact paths~~
 
 ### Problem
 + Could not distinguish `lnk` and target path

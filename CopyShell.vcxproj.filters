@@ -73,6 +73,7 @@
     </None>
     <None Include="readme.md" />
     <None Include=".gitignore" />
+    <None Include="RegMenu.reg" />
   </ItemGroup>
   <ItemGroup>
     <Midl Include="CopyShell.idl">

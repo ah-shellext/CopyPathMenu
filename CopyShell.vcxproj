@@ -267,6 +267,7 @@
     <None Include="CopyShell.rgs" />
     <None Include="readme.md" />
     <None Include="ReadMe.txt" />
+    <None Include="RegMenu.reg" />
   </ItemGroup>
   <ItemGroup>
     <Midl Include="CopyShell.idl" />
