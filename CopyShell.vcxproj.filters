@@ -31,6 +31,9 @@
     <ClCompile Include="CopyShell_i.c">
       <Filter>生成的文件</Filter>
     </ClCompile>
+    <ClCompile Include="CopyMenu.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -48,6 +51,9 @@
     <ClInclude Include="CopyShell_i.h">
       <Filter>生成的文件</Filter>
     </ClInclude>
+    <ClInclude Include="CopyMenu.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="CopyShell.rc">
@@ -61,6 +67,9 @@
     </None>
     <None Include="CopyShell.def">
       <Filter>源文件</Filter>
+    </None>
+    <None Include="CopyMenu.rgs">
+      <Filter>资源文件</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

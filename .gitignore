@@ -9,3 +9,7 @@ CopyShell_p.c
 dlldata.c
 
 ReadMe.txt
+
+Debug/
+Release/
+ipch/

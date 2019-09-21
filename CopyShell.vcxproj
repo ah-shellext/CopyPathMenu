@@ -75,6 +75,7 @@
       <ModuleDefinitionFile>.\CopyShell.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <RegisterOutput>true</RegisterOutput>
+      <PerUserRedirection>true</PerUserRedirection>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -112,6 +113,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CopyMenu.cpp" />
     <ClCompile Include="CopyShell.cpp" />
     <ClCompile Include="CopyShell_i.c">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
@@ -135,6 +137,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CopyMenu.h" />
     <ClInclude Include="CopyShell_i.h" />
     <ClInclude Include="dllmain.h" />
     <ClInclude Include="Resource.h" />
@@ -145,6 +148,7 @@
     <ResourceCompile Include="CopyShell.rc" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="CopyMenu.rgs" />
     <None Include="CopyShell.def" />
     <None Include="CopyShell.rgs" />
     <None Include="ReadMe.txt" />
