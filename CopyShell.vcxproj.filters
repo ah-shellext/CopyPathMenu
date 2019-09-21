@@ -71,6 +71,8 @@
     <None Include="CopyMenu.rgs">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="readme.md" />
+    <None Include=".gitignore" />
   </ItemGroup>
   <ItemGroup>
     <Midl Include="CopyShell.idl">

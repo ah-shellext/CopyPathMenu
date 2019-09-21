@@ -95,7 +95,8 @@ public:
 
 private:
 
-	std::vector<std::string> sel_files;
+	std::vector<std::wstring> sel_files;
+	bool lnkFlag;
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(CopyMenu), CCopyMenu)

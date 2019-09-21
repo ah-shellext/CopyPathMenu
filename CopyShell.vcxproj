@@ -261,9 +261,11 @@
     <ResourceCompile Include="CopyShell.rc" />
   </ItemGroup>
   <ItemGroup>
+    <None Include=".gitignore" />
     <None Include="CopyMenu.rgs" />
     <None Include="CopyShell.def" />
     <None Include="CopyShell.rgs" />
+    <None Include="readme.md" />
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
