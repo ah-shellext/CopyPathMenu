@@ -96,7 +96,7 @@ public:
 private:
 
 	IDataObject *pdtobj;
-	// bool lnkFlag;
+	bool lnkFlag;
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(CopyMenu), CCopyMenu)

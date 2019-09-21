@@ -9,5 +9,5 @@ Windows Registry Editor Version 5.00
 @="{786C8A4B-9492-47C2-982D-74CECD921E74}"
 
 ; Lnk twice register
-; [HKEY_CLASSES_ROOT\lnkfile\shellex\ContextMenuHandlers\CopyShell]
-; @="{786C8A4B-9492-47C2-982D-74CECD921E74}"
+[HKEY_CLASSES_ROOT\lnkfile\shellex\ContextMenuHandlers\CopyShell]
+@="{786C8A4B-9492-47C2-982D-74CECD921E74}"
