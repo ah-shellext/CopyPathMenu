@@ -12,4 +12,7 @@ ReadMe.txt
 
 Debug/
 Release/
+x64/
+Win32/
+
 ipch/
