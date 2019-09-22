@@ -3,7 +3,7 @@
 
 ### Environment
 + `MSVC 2010`
-+ `Windows 10 1803`
++ `Windows 10 1803 x64`
 
 ### Register
 ```bash
@@ -11,8 +11,11 @@
 
 cd x64/Register/
 regsvr32 CopyShell.dll
-
 # Use RegMenu.reg
+
+# Unregister
+regsvr32 /u CopyShell.dll
+# Use UnregMenu.reg
 ```
 
 ### Tips

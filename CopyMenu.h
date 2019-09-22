@@ -13,6 +13,10 @@
 #error "Windows CE 平台(如不提供完全 DCOM 支持的 Windows Mobile 平台)上无法正确支持单线程 COM 对象。定义 _CE_ALLOW_SINGLE_THREADED_OBJECTS_IN_MTA 可强制 ATL 支持创建单线程 COM 对象实现并允许使用其单线程 COM 对象实现。rgs 文件中的线程模型已被设置为“Free”，原因是该模型是非 DCOM Windows CE 平台支持的唯一线程模型。"
 #endif
 
+#ifdef WIN32  
+#pragma execution_character_set("utf-8")  
+#endif
+
 using namespace ATL;
 
 #include <vector>
@@ -96,7 +100,6 @@ public:
 private:
 
 	IDataObject *pdtobj;
-	bool lnkFlag;
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(CopyMenu), CCopyMenu)
