@@ -9,7 +9,7 @@
 ```bash
 # Build x64 Register platform
 
-cd x64/Register/
+cd x64/Release/
 regsvr32 CopyShell.dll
 # Use RegMenu.reg
 

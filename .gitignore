@@ -1,19 +1,28 @@
+### Editor ###
+.vscode/
+.ionide/
+.history/
+.idea/
+
+### VS ###
+ipch/
 *.suo
 *.user
 *.opensdf
 *.sdf
+*.rdb
 
+### ATL ###
 CopyShell_i.c
 CopyShell_i.h
 CopyShell_p.c
 dlldata.c
-
 ReadMe.txt
 
-Debug/
-Release/
-x64/
-Win32/
-
-ipch/
-.ionide/
+### Build ###
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+[Xx]86/
+[Xx]64/
