@@ -86,6 +86,7 @@ public:
 
 private:
     IDataObject *pdtobj;
+    int count;
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(CopyMenu), CCopyMenu)

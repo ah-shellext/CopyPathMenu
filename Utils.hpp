@@ -6,14 +6,9 @@
 
 class Utils {
 public:
-    static std::string int2str(int num) {
-        return std::to_string((long long) num);
-    }
-
-    static std::wstring s2ws(const std::string& s) {
-        int len;
-        int slength = (int)s.length() + 1;
-        len = MultiByteToWideChar(CP_ACP, 0, s.c_str(), slength, nullptr, 0); 
+    static std::wstring s2ws(const std::string &s) {
+        int slength = (int) s.length() + 1;
+        int len = MultiByteToWideChar(CP_ACP, 0, s.c_str(), slength, nullptr, 0); 
         auto buf = new wchar_t[len];
         MultiByteToWideChar(CP_ACP, 0, s.c_str(), slength, buf, len);
         std::wstring r(buf);
@@ -26,7 +21,7 @@ public:
         size_t srclen = src.size();
         size_t dstlen = dst.size();
 
-        while((pos=str.find(src, pos)) != std::string::npos) {
+        while ((pos = str.find(src, pos)) != std::string::npos) {
             str.replace(pos, srclen, dst);
             pos += dstlen;
         }

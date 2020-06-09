@@ -7,7 +7,7 @@
 
 // 用于确定 DLL 是否可由 OLE 卸载。
 STDAPI DllCanUnloadNow(void) {
-            return _AtlModule.DllCanUnloadNow();
+    return _AtlModule.DllCanUnloadNow();
 }
 
 // 返回一个类工厂以创建所请求类型的对象。
