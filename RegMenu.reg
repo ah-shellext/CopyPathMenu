@@ -11,3 +11,7 @@ Windows Registry Editor Version 5.00
 ; Lnk twice register
 [HKEY_CLASSES_ROOT\lnkfile\shellex\ContextMenuHandlers\CopyShell]
 @="{786C8A4B-9492-47C2-982D-74CECD921E74}"
+
+; Background
+[HKEY_CLASSES_ROOT\Directory\Background\shellex\ContextMenuHandlers\CopyShell]
+@="{786C8A4B-9492-47C2-982D-74CECD921E74}"

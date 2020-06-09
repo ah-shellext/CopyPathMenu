@@ -262,6 +262,7 @@
     <ResourceCompile Include="CopyShell.rc" />
   </ItemGroup>
   <ItemGroup>
+    <None Include=".gitattribute" />
     <None Include=".gitignore" />
     <None Include="CopyMenu.rgs" />
     <None Include="CopyShell.def" />

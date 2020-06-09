@@ -1,5 +1,5 @@
 #pragma once
-#include "resource.h"  // 主符号
+#include "resource.h"
 
 #include "CopyShell_i.h"
 
@@ -12,8 +12,6 @@
 #endif
 
 using namespace ATL;
-
-// CCopyMenu
 
 class ATL_NO_VTABLE CCopyMenu :
     public CComObjectRootEx<CComSingleThreadModel>,
@@ -41,6 +39,11 @@ END_COM_MAP()
     }
 
     void FinalRelease() { }
+
+private:
+    IDataObject *pdtobj;
+    LPCITEMIDLIST pidlFolder;
+    int count;
 
 public:
 
@@ -83,10 +86,6 @@ public:
         /* [annotation][in] */ 
         __in  UINT cchMax
     );
-
-private:
-    IDataObject *pdtobj;
-    int count;
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(CopyMenu), CCopyMenu)

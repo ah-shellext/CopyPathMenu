@@ -78,6 +78,7 @@
     <None Include=".gitignore" />
     <None Include="RegMenu.reg" />
     <None Include="UnregMenu.reg" />
+    <None Include=".gitattribute" />
   </ItemGroup>
   <ItemGroup>
     <Midl Include="CopyShell.idl">
