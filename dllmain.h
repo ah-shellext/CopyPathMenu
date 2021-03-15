@@ -1,6 +1,6 @@
 // dllmain.h : 模块类的声明。
 
-class CCopyShellModule : 
+class CCopyShellModule :
     public ATL::CAtlDllModuleT<CCopyShellModule> {
 public:
     DECLARE_LIBID(LIBID_CopyShellLib)

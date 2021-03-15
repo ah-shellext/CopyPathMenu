@@ -21,6 +21,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{774BF23F-F982-4E16-BB25-A30389236EC4}</ProjectGuid>
     <Keyword>AtlProj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -40,12 +41,14 @@
     <UseDebugLibraries>false</UseDebugLibraries>
     <UseOfAtl>Dynamic</UseOfAtl>
     <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <UseOfAtl>Dynamic</UseOfAtl>
     <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -267,10 +270,10 @@
     <None Include="CopyMenu.rgs" />
     <None Include="CopyShell.def" />
     <None Include="CopyShell.rgs" />
-    <None Include="readme.md" />
+    <None Include="README.md" />
     <None Include="ReadMe.txt" />
-    <None Include="RegMenu.reg" />
-    <None Include="UnregMenu.reg" />
+    <None Include="Register.reg" />
+    <None Include="Unregister.reg" />
   </ItemGroup>
   <ItemGroup>
     <Midl Include="CopyShell.idl" />

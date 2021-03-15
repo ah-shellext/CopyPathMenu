@@ -3,6 +3,7 @@
 .ionide/
 .history/
 .idea/
+.vs/
 
 ### VS ###
 ipch/
@@ -12,7 +13,7 @@ ipch/
 *.sdf
 *.rdb
 
-### ATL ###
+### Generate ###
 CopyShell_i.c
 CopyShell_i.h
 CopyShell_p.c
@@ -26,3 +27,5 @@ ReadMe.txt
 [Rr]elease/
 [Xx]86/
 [Xx]64/
+[Ww]in32/
+[Ww]]in64/

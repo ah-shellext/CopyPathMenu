@@ -5,7 +5,7 @@ HKCR
 		CLSID = s '{786C8A4B-9492-47C2-982D-74CECD921E74}'
 	}
 	CopyShell.CopyMenu = s 'CopyMenu Class'
-	{		
+	{
 		CurVer = s 'CopyShell.CopyMenu.1'
 	}
 	NoRemove CLSID

@@ -8,7 +8,7 @@ class Utils {
 public:
     static std::wstring s2ws(const std::string &s) {
         int slength = (int) s.length() + 1;
-        int len = MultiByteToWideChar(CP_ACP, 0, s.c_str(), slength, nullptr, 0); 
+        int len = MultiByteToWideChar(CP_ACP, 0, s.c_str(), slength, nullptr, 0);
         auto buf = new wchar_t[len];
         MultiByteToWideChar(CP_ACP, 0, s.c_str(), slength, buf, len);
         std::wstring r(buf);
@@ -25,7 +25,7 @@ public:
             str.replace(pos, srclen, dst);
             pos += dstlen;
         }
-    } 
+    }
 
     static bool wstring_endsWith(const std::wstring &str, const std::wstring &sub) {
         return str.rfind(sub) == (str.length() - sub.length());

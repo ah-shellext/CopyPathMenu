@@ -74,10 +74,10 @@
     <None Include="CopyMenu.rgs">
       <Filter>资源文件</Filter>
     </None>
-    <None Include="readme.md" />
+    <None Include="README.md" />
     <None Include=".gitignore" />
-    <None Include="RegMenu.reg" />
-    <None Include="UnregMenu.reg" />
+    <None Include="Register.reg" />
+    <None Include="Unregister.reg" />
     <None Include=".gitattribute" />
   </ItemGroup>
   <ItemGroup>

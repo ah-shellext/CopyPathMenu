@@ -33,25 +33,25 @@
 // CopyMenu.cpp
 
 class ATL_NO_VTABLE CCopyMenu :
-	public CComObjectRootEx<CComSingleThreadModel>,
-	public CComCoClass<CCopyMenu, &CLSID_CopyMenu>,
-	public IDispatchImpl<ICopyMenu, &IID_ICopyMenu, &LIBID_CopyShellLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
-	public IShellExtInit,
-	public IContextMenu
+    public CComObjectRootEx<CComSingleThreadModel>,
+    public CComCoClass<CCopyMenu, &CLSID_CopyMenu>,
+    public IDispatchImpl<ICopyMenu, &IID_ICopyMenu, &LIBID_CopyShellLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
+    public IShellExtInit,
+    public IContextMenu
 {
 public:
-	CCopyMenu()
-	{
-	}
+    CCopyMenu()
+    {
+    }
 
 DECLARE_REGISTRY_RESOURCEID(IDR_COPYMENU)
 
 
 BEGIN_COM_MAP(CCopyMenu)
-	COM_INTERFACE_ENTRY(ICopyMenu)
-	COM_INTERFACE_ENTRY(IDispatch)
-	COM_INTERFACE_ENTRY(IShellExtInit)
-	COM_INTERFACE_ENTRY(IContextMenu)
+    COM_INTERFACE_ENTRY(ICopyMenu)
+    COM_INTERFACE_ENTRY(IDispatch)
+    COM_INTERFACE_ENTRY(IShellExtInit)
+    COM_INTERFACE_ENTRY(IContextMenu)
 END_COM_MAP()
 
 // ...
@@ -80,9 +80,9 @@ virtual HRESULT STDMETHODCALLTYPE Initialize(
 // CopyMenu.cpp
 
 HRESULT STDMETHODCALLTYPE CCopyMenu::Initialize(
-	__in_opt  PCIDLIST_ABSOLUTE pidlFolder,
-	__in_opt  IDataObject *pdtobj,
-	__in_opt  HKEY hkeyProgID)
+    __in_opt  PCIDLIST_ABSOLUTE pidlFolder,
+    __in_opt  IDataObject *pdtobj,
+    __in_opt  HKEY hkeyProgID)
 {
     return S_OK;
 }
@@ -163,33 +163,33 @@ HRESULT STDMETHODCALLTYPE GetCommandString(
 const UINT MENU_ID_1 = 0;
 
 HRESULT STDMETHODCALLTYPE CCopyMenu::QueryContextMenu(
-	__in  HMENU hmenu,
-	__in  UINT indexMenu,
-	__in  UINT idCmdFirst,
-	__in  UINT idCmdLast,
-	__in  UINT uFlags)
+    __in  HMENU hmenu,
+    __in  UINT indexMenu,
+    __in  UINT idCmdFirst,
+    __in  UINT idCmdLast,
+    __in  UINT uFlags)
 {
-	if (uFlags & CMF_DEFAULTONLY)
-		return MAKE_SCODE(SEVERITY_SUCCESS, FACILITY_NULL, 0);
+    if (uFlags & CMF_DEFAULTONLY)
+        return MAKE_SCODE(SEVERITY_SUCCESS, FACILITY_NULL, 0);
 
-	HMENU subMenu = CreateMenu();
+    HMENU subMenu = CreateMenu();
 
-	MENUITEMINFO outMenu;
-	outMenu.cbSize = sizeof(MENUITEMINFO);
-	outMenu.fMask = MIIM_STRING | MIIM_SUBMENU;
-	outMenu.dwTypeData = _T("パスのコピー");
-	outMenu.hSubMenu = subMenu;
+    MENUITEMINFO outMenu;
+    outMenu.cbSize = sizeof(MENUITEMINFO);
+    outMenu.fMask = MIIM_STRING | MIIM_SUBMENU;
+    outMenu.dwTypeData = _T("パスのコピー");
+    outMenu.hSubMenu = subMenu;
 
-	MENUITEMINFO cpy_menuItem;
-	cpy_menuItem.cbSize = sizeof(MENUITEMINFO);
-	cpy_menuItem.fMask = MIIM_STRING | MIIM_ID;
-	cpy_menuItem.dwTypeData = _T("引用記号抜き");
-	cpy_menuItem.wID = idCmdFirst + MENU_ID_1;
+    MENUITEMINFO cpy_menuItem;
+    cpy_menuItem.cbSize = sizeof(MENUITEMINFO);
+    cpy_menuItem.fMask = MIIM_STRING | MIIM_ID;
+    cpy_menuItem.dwTypeData = _T("引用記号抜き");
+    cpy_menuItem.wID = idCmdFirst + MENU_ID_1;
 
-	InsertMenuItem(hmenu, indexMenu, true, &outMenu);
-	InsertMenuItem(subMenu, 0, true, &cpy_menuItem);
+    InsertMenuItem(hmenu, indexMenu, true, &outMenu);
+    InsertMenuItem(subMenu, 0, true, &cpy_menuItem);
 
-	return MAKE_SCODE(SEVERITY_SUCCESS, FACILITY_NULL, 1); // 1 ID
+    return MAKE_SCODE(SEVERITY_SUCCESS, FACILITY_NULL, 1); // 1 ID
 }
 ```
 
@@ -199,18 +199,18 @@ HRESULT STDMETHODCALLTYPE CCopyMenu::QueryContextMenu(
 // CopyMenu.cpp
 
 HRESULT STDMETHODCALLTYPE CCopyMenu::InvokeCommand(
-	__in  CMINVOKECOMMANDINFO *pici)
+    __in  CMINVOKECOMMANDINFO *pici)
 {
-	UINT idCmd = LOWORD(pici->lpVerb);
-	if (HIWORD(pici->lpVerb) != 0)
-		return E_INVALIDARG;
+    UINT idCmd = LOWORD(pici->lpVerb);
+    if (HIWORD(pici->lpVerb) != 0)
+        return E_INVALIDARG;
         
-	switch (idCmd) {
-	case MENU_ID_1:
+    switch (idCmd) {
+    case MENU_ID_1:
         MessageBox(NULL, _T("MENU_ID_1"), _T("Mhell"), MB_OK);
-		break;
-	}
-	return S_OK;
+        break;
+    }
+    return S_OK;
 }
 ```
 
@@ -220,14 +220,14 @@ HRESULT STDMETHODCALLTYPE CCopyMenu::InvokeCommand(
 // CopyMenu.cpp
 
 HRESULT STDMETHODCALLTYPE CCopyMenu::GetCommandString(
-	__in  UINT_PTR idCmd,
-	__in  UINT uType,
-	__reserved  UINT *pReserved,
-	__out_awcount(!(uType & GCS_UNICODE), cchMax)  LPSTR pszName,
-	__in  UINT cchMax)
+    __in  UINT_PTR idCmd,
+    __in  UINT uType,
+    __reserved  UINT *pReserved,
+    __out_awcount(!(uType & GCS_UNICODE), cchMax)  LPSTR pszName,
+    __in  UINT cchMax)
 {
     // 不使用
-	return S_OK;
+    return S_OK;
 }
 ```
 
@@ -241,38 +241,38 @@ HRESULT STDMETHODCALLTYPE CCopyMenu::GetCommandString(
 #include <vector>
 
 HRESULT STDMETHODCALLTYPE CCopyMenu::Initialize(
-	__in_opt  PCIDLIST_ABSOLUTE pidlFolder,
-	__in_opt  IDataObject *pdtobj,
-	__in_opt  HKEY hkeyProgID)
+    __in_opt  PCIDLIST_ABSOLUTE pidlFolder,
+    __in_opt  IDataObject *pdtobj,
+    __in_opt  HKEY hkeyProgID)
 {
-	HRESULT hr = E_INVALIDARG;
-	
-	FORMATETC fe = { CF_HDROP, NULL, DVASPECT_CONTENT, -1, TYMED_HGLOBAL };
-	STGMEDIUM stm = {};
-	if (SUCCEEDED(pdtobj->GetData(&fe, &stm))) {
-		HDROP hDrop = static_cast<HDROP>(GlobalLock(stm.hGlobal));
-		if (hDrop != NULL) {
-			UINT cnt = DragQueryFile(hDrop, 0xFFFFFFFF, NULL, 0);
-			if (cnt != 0) {
+    HRESULT hr = E_INVALIDARG;
+    
+    FORMATETC fe = { CF_HDROP, NULL, DVASPECT_CONTENT, -1, TYMED_HGLOBAL };
+    STGMEDIUM stm = {};
+    if (SUCCEEDED(pdtobj->GetData(&fe, &stm))) {
+        HDROP hDrop = static_cast<HDROP>(GlobalLock(stm.hGlobal));
+        if (hDrop != NULL) {
+            UINT cnt = DragQueryFile(hDrop, 0xFFFFFFFF, NULL, 0);
+            if (cnt != 0) {
                 std::vector<std::string> sel_files;
-				for (UINT i = 0; i < cnt; i++) {
-					LPWSTR str = new WCHAR[2048];
-					memset(str, 0, 2048);
-					int size = DragQueryFile(hDrop, i, str, 2048);
-					if (size == 0) continue;
-					std::string name = ATL::CW2A(str);
-					delete []str;
+                for (UINT i = 0; i < cnt; i++) {
+                    LPWSTR str = new WCHAR[2048];
+                    memset(str, 0, 2048);
+                    int size = DragQueryFile(hDrop, i, str, 2048);
+                    if (size == 0) continue;
+                    std::string name = ATL::CW2A(str);
+                    delete []str;
 
-					if (name == "") continue;
-					sel_files.push_back(name);
-				}
-				hr = S_OK;
-				GlobalUnlock(stm.hGlobal);
-			}
-			ReleaseStgMedium(&stm);
-		}
-	}
-	return hr;
+                    if (name == "") continue;
+                    sel_files.push_back(name);
+                }
+                hr = S_OK;
+                GlobalUnlock(stm.hGlobal);
+            }
+            ReleaseStgMedium(&stm);
+        }
+    }
+    return hr;
 }
 ```
 
@@ -285,16 +285,16 @@ HRESULT STDMETHODCALLTYPE CCopyMenu::Initialize(
 
 library CopyShellLib
 {
-	importlib("stdole2.tlb");
-	[
+    importlib("stdole2.tlb");
+    [
         // 需要与 CopyMenu.rgs 对应
-		uuid(786C8A4B-9492-47C2-982D-74CECD921E74),
-		helpstring("ComponentRegister Class")
-	]
-	coclass CopyMenu
-	{
-		[default] interface ICopyMenu;
-	};
+        uuid(786C8A4B-9492-47C2-982D-74CECD921E74),
+        helpstring("ComponentRegister Class")
+    ]
+    coclass CopyMenu
+    {
+        [default] interface ICopyMenu;
+    };
 };
 ```
 

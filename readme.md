@@ -1,10 +1,10 @@
 # CopyShell
 
-+ ATL Shell Extension for File Context Menu
++ An Windows shell extension, used to add some filepath copy actions to context menu.
 
 ### Environment
 
-+ `MSVC 2010`
++ `MSVC 2019`
 + `Windows 10 1803 x64`
 
 ### Register
@@ -14,18 +14,18 @@
 
 cd x64/Release/
 regsvr32 CopyShell.dll
-# Use RegMenu.reg
+Register.reg
 
 # Unregister
 regsvr32 /u CopyShell.dll
-# Use UnregMenu.reg
+Unregister.reg
 ```
 
 ### Tips
 
-+ Tutorial see [tutorial.md](https://github.com/Aoi-hosizora/CopyShell/blob/master/tutorial.md)
-+ Main code see [CopyMenu.h](https://github.com/Aoi-hosizora/CopyShell/blob/master/CopyMenu.h) and [CopyMenu.cpp](https://github.com/Aoi-hosizora/CopyShell/blob/master/CopyMenu.cpp)
-+ CLSID setting see [CopyShell.idl](https://github.com/Aoi-hosizora/CopyShell/blob/master/CopyShell.idl) and [CopyMenu.rgs](https://github.com/Aoi-hosizora/CopyShell/blob/master/CopyMenu.rgs)
++ Tutorial see [tutorial.md](./tutorial.md)
++ Main code see [CopyMenu.h](./CopyMenu.h) and [CopyMenu.cpp](./CopyMenu.cpp)
++ CLSID setting see [CopyShell.idl](./CopyShell.idl) and [CopyMenu.rgs](./CopyMenu.rgs)
 + Use `wstring` and `LPWSTR` rather than `string` and `LPSTR` to support other code page
 + `lnk` file `QueryContextMenu` should register twice (`*` and `.lnk`) to filter the exact paths
 

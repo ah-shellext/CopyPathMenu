@@ -6,7 +6,7 @@ Windows Registry Editor Version 5.00
 ; Directory
 [-HKEY_CLASSES_ROOT\Directory\shellex\ContextMenuHandlers\CopyShell]
 
-; Lnk twice register
+; Lnk file
 [-HKEY_CLASSES_ROOT\lnkfile\shellex\ContextMenuHandlers\CopyShell]
 
 ; Background
