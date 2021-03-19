@@ -1,0 +1,17 @@
+Windows Registry Editor Version 5.00
+
+; All file
+[HKEY_CLASSES_ROOT\*\shellex\ContextMenuHandlers\CopyPathMenu]
+@="{7a73e28f-7fd5-436e-bdc0-8f25fb8ede0f}"
+
+; Lnk file
+[HKEY_CLASSES_ROOT\lnkfile\shellex\ContextMenuHandlers\CopyPathMenu]
+@="{7a73e28f-7fd5-436e-bdc0-8f25fb8ede0f}"
+
+; Directory
+[HKEY_CLASSES_ROOT\Directory\shellex\ContextMenuHandlers\CopyPathMenu]
+@="{7a73e28f-7fd5-436e-bdc0-8f25fb8ede0f}"
+
+; Background
+[HKEY_CLASSES_ROOT\Directory\Background\shellex\ContextMenuHandlers\CopyPathMenu]
+@="{7a73e28f-7fd5-436e-bdc0-8f25fb8ede0f}"
