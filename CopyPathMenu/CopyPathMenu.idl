@@ -1,0 +1,18 @@
+// CopyPathMenu.idl : IDL source for CopyPathMenu
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (CopyPathMenu.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	uuid(bc4b0323-3734-441f-8a5a-aeb4d4dd51d8),
+	version(1.0),
+]
+library CopyPathMenuLib
+{
+	importlib("stdole2.tlb");
+};
+
