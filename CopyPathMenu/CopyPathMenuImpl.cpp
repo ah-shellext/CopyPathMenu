@@ -165,7 +165,7 @@ HRESULT STDMETHODCALLTYPE CCopyPathMenuImpl::QueryContextMenu(
     }
 
     // make hResult
-    return MAKE_HRESULT(SEVERITY_SUCCESS, FACILITY_NULL, (USHORT) cmd_count);
+    return MAKE_HRESULT(SEVERITY_SUCCESS, FACILITY_NULL, (USHORT) cmd_count + 1);
 }
 
 HRESULT STDMETHODCALLTYPE CCopyPathMenuImpl::InvokeCommand(

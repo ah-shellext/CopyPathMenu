@@ -43,31 +43,22 @@ public:
             return false;
         }
 
-        bool ok = true;
         out->clear();
-        UINT cnt = DragQueryFile(hDrop, 0xFFFFFFFF, nullptr, 0);
         auto str = new WCHAR[MAX_PATH_LENGTH];
-        try {
-            for (UINT i = 0; i < cnt; i++) {
-                memset(str, 0, MAX_PATH_LENGTH);
-                int size = DragQueryFile(hDrop, i, str, MAX_PATH_LENGTH);
-                if (size == 0) {
-                    continue;
-                }
-                std::wstring name = str;
-                if (name.empty()) {
-                    continue;
-                }
-                out->push_back(name);
+        UINT cnt = DragQueryFile(hDrop, 0xFFFFFFFF, nullptr, 0);
+        for (UINT i = 0; i < cnt; i++) {
+            memset(str, 0, MAX_PATH_LENGTH);
+            DragQueryFile(hDrop, i, str, MAX_PATH_LENGTH);
+            std::wstring name = str;
+            if (name.empty()) {
+                continue;
             }
-            ok = true;
-        } catch (...) {
-            ok = false;
+            out->push_back(name);
         }
         delete[] str;
         GlobalUnlock(stm.hGlobal);
 
-        return ok;
+        return true;
     }
 
     /**
@@ -136,31 +127,31 @@ public:
     /**
      * @brief Join given filenames and options to result wstring.
      */
-    static std::wstring JoinFilenames(std::vector<std::wstring> filenames, bool quote, bool only_name, bool use_comma) {
-        auto func = [&](std::wstring name) -> std::wstring {
+    static std::wstring JoinFilenames(std::vector<std::wstring> filenames, bool use_quote, bool only_name, bool use_comma) {
+        auto func = [only_name, use_quote](std::wstring name) -> std::wstring {
+            std::wstring res = L"";
             if (only_name) {
                 auto sp = Utils::SplitWstring(name, L"\\");
                 if (!sp.empty()) {
-                    return sp.at(sp.size() - 1);
+                    res = sp.at(sp.size() - 1);
                 }
+            } else {
+                res = name;
             }
-            return name;
+            if (use_quote) {
+                res = L"\"" + res + L"\"";
+            }
+            return res;
         };
 
-        std::wstring out = func(filenames.at(0));
         std::wstring join = L";";
         if (use_comma) {
             join = L",";
         }
-        if (quote) {
-            out = L"\"" + out + L"\"";
-        }
-        for (auto iter = filenames.begin() + 1; iter != filenames.end(); iter++) {
-            if (quote) {
-                out += join + L"\"" + func(*iter) + L"\"";
-            } else {
-                out += join + func(*iter);
-            }
+
+        std::wstring out = func(filenames.at(0));
+        for (auto iter = std::next(filenames.begin()); iter != filenames.end(); iter++) {
+            out += join + func(*iter);
         }
         return out;
     }
