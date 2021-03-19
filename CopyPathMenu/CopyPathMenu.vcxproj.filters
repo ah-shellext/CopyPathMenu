@@ -37,6 +37,9 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CopyPathMenuImpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CopyPathMenu.cpp">
@@ -51,6 +54,9 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CopyPathMenuImpl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="CopyPathMenu.rc">
@@ -63,6 +69,9 @@
     </None>
     <None Include="CopyPathMenu.def">
       <Filter>Source Files</Filter>
+    </None>
+    <None Include="CopyPathMenuImpl.rgs">
+      <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

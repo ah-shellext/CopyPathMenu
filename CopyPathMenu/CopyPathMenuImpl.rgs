@@ -1,0 +1,16 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {7a73e28f-7fd5-436e-bdc0-8f25fb8ede0f} = s 'CopyPathMenuImpl class'
+		{
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{bc4b0323-3734-441f-8a5a-aeb4d4dd51d8}'
+			Version = s '1.0'
+		}
+	}
+}
