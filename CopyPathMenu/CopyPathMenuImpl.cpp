@@ -141,14 +141,14 @@ HRESULT STDMETHODCALLTYPE CCopyPathMenuImpl::QueryContextMenu(
     MENUITEMINFO mii_copy;
     mii_copy.cbSize = sizeof(MENUITEMINFO);
     mii_copy.fMask = MIIM_STRING | MIIM_SUBMENU;
-    mii_copy.dwTypeData = _T("パスのコピー(&P)");
+    mii_copy.dwTypeData = L"パスのコピー(&P)";
     mii_copy.hSubMenu = copy_menu;
 
     // restart explorer
     MENUITEMINFO mii_re;
     mii_re.cbSize = sizeof(MENUITEMINFO);
     mii_re.fMask = MIIM_STRING | MIIM_ID;
-    mii_re.dwTypeData = _T("エクスプローラーを再起動(&R)");
+    mii_re.dwTypeData = L"エクスプローラーを再起動(&R)";
     mii_re.wID = idCmdFirst + MENUID_RESTART_EXPLORER;
 
     // insert to hmenu
@@ -179,15 +179,104 @@ HRESULT STDMETHODCALLTYPE CCopyPathMenuImpl::InvokeCommand(
         return S_FALSE;
     }
 
+    // ================
     // restart explorer
+    // ================
+
     if (idCmd == MENUID_RESTART_EXPLORER) {
         system("taskkill /f /im explorer.exe && start explorer.exe");
         return S_OK;
     }
 
+    // ==============
     // other commands
+    // ==============
+
+    // get selected filename
+    std::vector<std::wstring> sel_filenames;
+    if (this->sel_count == 0) { // directory background
+        std::wstring curr_path;
+        bool ok = Utils::GetFolderNameFromItemIDList(this->curr_folder, &curr_path);
+        if (!ok) {
+            MessageBox(nullptr, L"フォルダーパスの取得にエラーが発生しました。", L"エラー", MB_OK);
+            return S_FALSE;
+        }
+        sel_filenames.emplace_back(curr_path);
+    } else { // files
+        bool ok = Utils::GetFilenamesFromDataObject(this->sel_object, &sel_filenames);
+        if (!ok) {
+            MessageBox(nullptr, L"ファイルパスの取得にエラーが発生しました。", L"エラー", MB_OK);
+            return S_FALSE;
+        }
+    }
+
+    // get result string
+    std::wstring res;
     switch (idCmd) {
-        // TODO
+    case MENUID_N_BCK:
+        res = Utils::JoinFilenames(sel_filenames, false, false, false);
+        break;
+    case MENUID_Q_BCK:
+        res = Utils::JoinFilenames(sel_filenames, true, false, false);
+        break;
+    case MENUID_N_FNT:
+        res = Utils::JoinFilenames(sel_filenames, false, false, false);
+        Utils::ReplaceWstring(&res, L"\\", L"/");
+        break;
+    case MENUID_Q_FNT:
+        res = Utils::JoinFilenames(sel_filenames, true, false, false);
+        Utils::ReplaceWstring(&res, L"\\", L"/");
+        break;
+    case MENUID_N_DBL:
+        res = Utils::JoinFilenames(sel_filenames, false, false, false);
+        Utils::ReplaceWstring(&res, L"\\", L"\\\\");
+        break;
+    case MENUID_Q_DBL:
+        res = Utils::JoinFilenames(sel_filenames, true, false, false);
+        Utils::ReplaceWstring(&res, L"\\", L"\\\\");
+        break;
+    case MENUID_N_NME:
+        res = Utils::JoinFilenames(sel_filenames, false, true, false);
+        break;
+    case MENUID_Q_NME:
+        res = Utils::JoinFilenames(sel_filenames, true, true, false);
+        break;
+    case MENUID_N_BCK_COMMA:
+        res = Utils::JoinFilenames(sel_filenames, false, false, true);
+        break;
+    case MENUID_Q_BCK_COMMA:
+        res = Utils::JoinFilenames(sel_filenames, true, false, true);
+        break;
+    case MENUID_N_FNT_COMMA:
+        res = Utils::JoinFilenames(sel_filenames, false, false, true);
+        Utils::ReplaceWstring(&res, L"\\", L"/");
+        break;
+    case MENUID_Q_FNT_COMMA:
+        res = Utils::JoinFilenames(sel_filenames, true, false, true);
+        Utils::ReplaceWstring(&res, L"\\", L"/");
+        break;
+    case MENUID_N_DBL_COMMA:
+        res = Utils::JoinFilenames(sel_filenames, false, false, true);
+        Utils::ReplaceWstring(&res, L"\\", L"\\\\");
+        break;
+    case MENUID_Q_DBL_COMMA:
+        res = Utils::JoinFilenames(sel_filenames, true, false, true);
+        Utils::ReplaceWstring(&res, L"\\", L"\\\\");
+        break;
+    case MENUID_N_NME_COMMA:
+        res = Utils::JoinFilenames(sel_filenames, false, true, true);
+        break;
+    case MENUID_Q_NME_COMMA:
+        res = Utils::JoinFilenames(sel_filenames, true, true, true);
+        break;
+    default:
+        return S_FALSE;
+    }
+
+    // copy to clipboard
+    auto ok = Utils::CopyToClipboard(res);
+    if (!ok) {
+        return S_FALSE;
     }
 
     return S_OK;
