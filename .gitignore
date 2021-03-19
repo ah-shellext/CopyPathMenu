@@ -5,7 +5,7 @@
 .idea/
 .vs/
 
-### VS ###
+### Project ###
 ipch/
 *.suo
 *.user
@@ -14,13 +14,14 @@ ipch/
 *.rdb
 
 ### Generate ###
-CopyShell_i.c
-CopyShell_i.h
-CopyShell_p.c
+*.aps
+*_i.c
+*_i.h
+*_p.c
 dlldata.c
-ReadMe.txt
 
 ### Build ###
+[Bb]uild/
 [Bb]in/
 [Oo]bj/
 [Dd]ebug/
@@ -28,4 +29,4 @@ ReadMe.txt
 [Xx]86/
 [Xx]64/
 [Ww]in32/
-[Ww]]in64/
+[Ww]in64/

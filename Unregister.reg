@@ -1,13 +1,13 @@
 Windows Registry Editor Version 5.00
 
 ; All file
-[-HKEY_CLASSES_ROOT\*\shellex\ContextMenuHandlers\CopyShell]
-
-; Directory
-[-HKEY_CLASSES_ROOT\Directory\shellex\ContextMenuHandlers\CopyShell]
+[-HKEY_CLASSES_ROOT\*\shellex\ContextMenuHandlers\CopyPathMenu]
 
 ; Lnk file
-[-HKEY_CLASSES_ROOT\lnkfile\shellex\ContextMenuHandlers\CopyShell]
+[-HKEY_CLASSES_ROOT\lnkfile\shellex\ContextMenuHandlers\CopyPathMenu]
+
+; Directory
+[-HKEY_CLASSES_ROOT\Directory\shellex\ContextMenuHandlers\CopyPathMenu]
 
 ; Background
-[-HKEY_CLASSES_ROOT\Directory\Background\shellex\ContextMenuHandlers\CopyShell]
+[-HKEY_CLASSES_ROOT\Directory\Background\shellex\ContextMenuHandlers\CopyPathMenu]
