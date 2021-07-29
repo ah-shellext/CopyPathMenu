@@ -184,7 +184,7 @@ HRESULT STDMETHODCALLTYPE CCopyPathMenuImpl::InvokeCommand(
     // ================
 
     if (idCmd == MENUID_RESTART_EXPLORER) {
-        system("taskkill /f /im explorer.exe && start explorer.exe");
+        ShellExecuteW(nullptr, L"open", L"cmd.exe", L"/C taskkill /f /im explorer.exe && start explorer.exe", nullptr, SW_HIDE);
         return S_OK;
     }
 
